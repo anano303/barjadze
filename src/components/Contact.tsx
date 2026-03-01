@@ -56,13 +56,30 @@ export default function Contact() {
     "idle",
   );
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus("sending");
-    setTimeout(() => {
-      setFormStatus("sent");
-      setTimeout(() => setFormStatus("idle"), 3000);
-    }, 1500);
+
+    try {
+      const formData = new FormData(formRef.current!);
+      const response = await fetch("https://formspree.io/f/mgegdqja", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        setFormStatus("sent");
+        formRef.current?.reset();
+        setTimeout(() => setFormStatus("idle"), 4000);
+      } else {
+        setFormStatus("idle");
+      }
+    } catch {
+      setFormStatus("idle");
+    }
   };
 
   return (
@@ -222,6 +239,7 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <form
+              ref={formRef}
               onSubmit={handleSubmit}
               className="space-y-5 sm:space-y-6 p-6 sm:p-8 rounded-3xl bg-white/[0.02] border border-white/5"
             >
@@ -232,6 +250,7 @@ export default function Contact() {
                   </label>
                   <input
                     type="text"
+                    name="name"
                     required
                     className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/5 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500/30 focus:bg-white/[0.05] transition-all duration-300 text-sm sm:text-base"
                     placeholder={t("contact.form.namePlaceholder")}
@@ -243,6 +262,7 @@ export default function Contact() {
                   </label>
                   <input
                     type="email"
+                    name="email"
                     required
                     className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/5 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500/30 focus:bg-white/[0.05] transition-all duration-300 text-sm sm:text-base"
                     placeholder="email@example.com"
@@ -256,6 +276,7 @@ export default function Contact() {
                 </label>
                 <input
                   type="text"
+                  name="subject"
                   required
                   className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/5 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500/30 focus:bg-white/[0.05] transition-all duration-300 text-sm sm:text-base"
                   placeholder={t("contact.form.subjectPlaceholder")}
@@ -267,6 +288,7 @@ export default function Contact() {
                   {t("contact.form.message")}
                 </label>
                 <textarea
+                  name="message"
                   required
                   rows={5}
                   className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/5 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500/30 focus:bg-white/[0.05] transition-all duration-300 resize-none text-sm sm:text-base"
