@@ -17,7 +17,8 @@ const notoSansGeorgian = Noto_Sans_Georgian({
   weight: ["300", "400", "500", "600", "700", "800"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ninobarjadze.com";
+const rawUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ninobarjadze.com";
+const siteUrl = rawUrl.startsWith("http") ? rawUrl : `https://${rawUrl}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -69,7 +70,7 @@ export const metadata: Metadata = {
     siteName: "Nino Barjadze Portfolio",
     images: [
       {
-        url: "/og-image.png",
+        url: "/230.jfif",
         width: 1200,
         height: 630,
         alt: "Nino Barjadze — UX/UI & Graphic Designer",
@@ -84,7 +85,7 @@ export const metadata: Metadata = {
     title: "ნინო ბარჯაძე — UX/UI & Graphic Designer",
     description:
       "Professional UX/UI & Graphic Designer based in Tbilisi, Georgia.",
-    images: ["/og-image.png"],
+    images: ["/230.jfif"],
     creator: "@ninobarjadze",
   },
   alternates: {
@@ -106,10 +107,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ka" className="scroll-smooth">
-      <body className={`${syne.variable} ${notoSansGeorgian.variable} antialiased noise-bg`}>
-        <LanguageProvider>
-          {children}
-        </LanguageProvider>
+      <body
+        className={`${syne.variable} ${notoSansGeorgian.variable} antialiased noise-bg`}
+      >
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );
