@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     siteName: "Nino Barjadze Portfolio",
     images: [
       {
-        url: "/230.jfif",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Nino Barjadze — UX/UI & Graphic Designer",
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     title: "ნინო ბარჯაძე — UX/UI & Graphic Designer",
     description:
       "Professional UX/UI & Graphic Designer based in Tbilisi, Georgia.",
-    images: ["/230.jfif"],
+    images: ["/og-image.jpg"],
     creator: "@ninobarjadze",
   },
   alternates: {

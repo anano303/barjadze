@@ -60,7 +60,7 @@ export default function About() {
             <div className="relative rounded-3xl overflow-hidden aspect-[4/5] max-w-sm sm:max-w-md mx-auto lg:mx-0">
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
               <Image
-                src="/nino.jfif"
+                src="/nino.jpg"
                 alt="ნინო ბარჯაძე"
                 fill
                 className="object-cover"

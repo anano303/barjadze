@@ -160,7 +160,7 @@ export default function Hero() {
           <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-96 lg:h-96 rounded-full overflow-hidden animate-pulse-glow">
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-500/20 to-cyan-500/20 z-10" />
             <Image
-              src="/nino.jfif"
+              src="/nino.jpg"
               alt="ნინო ბარჯაძე"
               fill
               className="object-cover"
