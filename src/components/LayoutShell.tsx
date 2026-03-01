@@ -18,7 +18,10 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
       // Only update if not already set
       if (!currentHash.startsWith("#en")) {
         const section = currentHash.replace("#", "") || "";
-        const newHash = section && section !== "ka" && section !== "en" ? `#en/${section}` : "#en";
+        const newHash =
+          section && section !== "ka" && section !== "en"
+            ? `#en/${section}`
+            : "#en";
         window.history.replaceState(null, "", newHash);
       }
     } else {
@@ -26,7 +29,11 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
       if (currentHash.startsWith("#en")) {
         const section = currentHash.replace("#en/", "").replace("#en", "");
         const newHash = section ? `#${section}` : "#";
-        window.history.replaceState(null, "", newHash || window.location.pathname);
+        window.history.replaceState(
+          null,
+          "",
+          newHash || window.location.pathname,
+        );
       }
     }
   }, [locale]);

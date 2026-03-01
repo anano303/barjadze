@@ -1,14 +1,20 @@
 import type { Metadata } from "next";
-import { Syne } from "next/font/google";
+import { Syne, Noto_Sans_Georgian } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
-import { LayoutShell } from "@/components/LayoutShell";
 
 const syne = Syne({
   variable: "--font-syne",
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "500", "600", "700", "800"],
+});
+
+const notoSansGeorgian = Noto_Sans_Georgian({
+  variable: "--font-noto-geo",
+  subsets: ["georgian"],
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ninobarjadze.com";
@@ -100,19 +106,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ka" className="scroll-smooth">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body
-        className={`${syne.variable} antialiased noise-bg`}
-      >
+      <body className={`${syne.variable} ${notoSansGeorgian.variable} antialiased noise-bg`}>
         <LanguageProvider>
-          <LayoutShell>{children}</LayoutShell>
+          {children}
         </LanguageProvider>
       </body>
     </html>

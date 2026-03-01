@@ -24,7 +24,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden grid-pattern"
+      className="relative mt-[30px] min-h-fit sm:min-h-screen flex items-start sm:items-center justify-center overflow-hidden grid-pattern"
     >
       {/* Cursor glow */}
       <div ref={cursorGlowRef} className="cursor-glow hidden md:block" />
@@ -57,7 +57,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-24 pb-16 sm:py-32 flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-[72px] pb-8 sm:py-32 flex flex-col lg:flex-row items-center gap-6 sm:gap-12 lg:gap-20">
         {/* Text Content */}
         <div className="flex-1 text-center lg:text-left">
           {/* Status Badge */}
@@ -65,7 +65,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-green-500/10 border border-green-500/20 mb-6 sm:mb-8"
+            className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-green-500/10 border border-green-500/20 mb-3 sm:mb-8"
           >
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0" />
             <span className="text-green-400 text-[11px] sm:text-sm font-medium leading-tight">
@@ -77,7 +77,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] tracking-tight mb-4 sm:mb-6"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] tracking-tight mb-2 sm:mb-6"
             style={{ fontFamily: "var(--font-display)" }}
           >
             <span className="text-white">{t("hero.firstName")}</span>
@@ -89,7 +89,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex items-center gap-2 sm:gap-3 justify-center lg:justify-start mb-4 sm:mb-6 flex-wrap"
+            className="flex items-center gap-2 sm:gap-3 justify-center lg:justify-start mb-3 sm:mb-6 flex-wrap"
           >
             <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400 flex-shrink-0" />
             <span className="text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-300 font-light tracking-wide text-center lg:text-left">
@@ -101,7 +101,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-sm sm:text-base md:text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 mb-8 sm:mb-10 leading-relaxed px-2 sm:px-0"
+            className="text-sm sm:text-base md:text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 mb-5 sm:mb-10 leading-relaxed px-2 sm:px-0"
           >
             {t("hero.description")}
           </motion.p>

@@ -9,8 +9,8 @@
   --color-surface: #111111;
   --color-surface-light: #1a1a1a;
   --color-muted: #888888;
-  --font-sans: "Noto Sans Georgian", var(--font-syne), system-ui, sans-serif;
-  --font-display: var(--font-syne), "Noto Sans Georgian", system-ui, sans-serif;
+  --font-sans: var(--font-noto-geo), var(--font-syne), system-ui, sans-serif;
+  --font-display: var(--font-syne), var(--font-noto-geo), system-ui, sans-serif;
 }
 
 /* Custom scrollbar */
@@ -39,7 +39,7 @@ html {
 body {
   background: #0a0a0a;
   color: #ededed;
-  font-family: "Noto Sans Georgian", var(--font-syne), system-ui, sans-serif;
+  font-family: var(--font-noto-geo), var(--font-syne), system-ui, sans-serif;
   overflow-x: hidden;
 }
 
